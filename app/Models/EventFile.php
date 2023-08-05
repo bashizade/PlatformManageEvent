@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class EventFile extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'event_id','patch'
+    ];
 }
