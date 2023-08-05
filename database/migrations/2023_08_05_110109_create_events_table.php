@@ -19,8 +19,8 @@ class CreateEventsTable extends Migration
             $table->bigInteger('unit_id')->unsigned()->index();
             $table->string('title');
             $table->text('description');
-            $table->timestamp('start_date');
-            $table->timestamp('end_date');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->integer('status')->default(1);
             $table->timestamps();
         });

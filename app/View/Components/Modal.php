@@ -14,11 +14,13 @@ class Modal extends Component
     public $modal_id;
     public $header;
     public $button;
-    public function __construct($modalID,$header,$button)
+    public $colorbtn;
+    public function __construct($modalID,$header,$button,$colorbtn = "blue")
     {
         $this->modal_id = $modalID;
         $this->header = $header;
         $this->button = $button;
+        $this->colorbtn = $colorbtn;
     }
 
     /**

@@ -12,9 +12,11 @@ class Select extends Component
      * @return void
      */
     public $label;
-    public function __construct($label)
+    public $name;
+    public function __construct($label,$name)
     {
         $this->label = $label;
+        $this->name = $name;
     }
 
     /**
