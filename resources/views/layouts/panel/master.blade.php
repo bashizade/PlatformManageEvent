@@ -7,7 +7,7 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
-    <title>داشبرد</title>
+    <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
@@ -18,7 +18,7 @@
 @include('layouts.panel.sidebar')
 
 <div class="pr-3 lg:pr-[16.75rem] pt-20 pb-3 pl-3 text-right w-full dark:text-gray-100">
-    ads
+    @yield('content')
 </div>
 
 <script defer src="{{ asset('js/alpine.js') }}"></script>
