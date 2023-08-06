@@ -17,7 +17,9 @@
             <x-form.input type="text" name="message" placeholder="رویداد در ساعت ..." label="توضیحات ارسالی به کاربر درباره رویداد"/>
             <x-form.select2 name="categories" label="دسته بندی رویداد">
                 <option value="">دسته بندی رویداد را انتخاب کنید</option>
-                <option value="1">1</option>
+                @foreach($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->title }}</option>
+                @endforeach
             </x-form.select2>
             <x-button color="green">افزودن</x-button>
         </form>
@@ -56,7 +58,9 @@
                                     <x-form.input type="text" name="message" placeholder="رویداد در ساعت ..." label="توضیحات ارسالی به کاربر درباره رویداد">{{ $event->message }}</x-form.input>
                                     <x-form.select2 name="categories" label="دسته بندی رویداد">
                                         <option value="">دسته بندی رویداد را انتخاب کنید</option>
-                                        <option value="1">1</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}" {{ $event->category()->where('category_id',$category->id)->count() > 0 ? "selected" : "" }}>{{ $category->title }}</option>
+                                        @endforeach
                                     </x-form.select2>
                                     <x-button color="green">ویرایش</x-button>
                                 </form>

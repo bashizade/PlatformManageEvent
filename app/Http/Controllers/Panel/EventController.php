@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Panel\Event\EventCreateRequest;
 use App\Http\Requests\Panel\Event\EventDeleteRequest;
 use App\Http\Requests\Panel\Event\EventUpdateRequest;
+use App\Models\Category;
 use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,8 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::all();
-        return view('panel.events',compact('events'));
+        $categories = Category::query()->where('status',1)->get();
+        return view('panel.events',compact('events','categories'));
     }
 
     public function create(EventCreateRequest $request)
