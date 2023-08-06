@@ -24,7 +24,7 @@ Route::prefix('panel')->group(function (){
         Route::get('/',[\App\Http\Controllers\Panel\EventController::class,'index'])->name('panel.event.index');
         Route::post('/create',[\App\Http\Controllers\Panel\EventController::class,'create'])->name('panel.event.create');
         Route::put('/update/{event}',[\App\Http\Controllers\Panel\EventController::class,'update'])->name('panel.event.update');
-        Route::delete('/disable',[\App\Http\Controllers\Panel\EventController::class,'disable'])->name('panel.event.disable');
-        Route::post('/enable',[\App\Http\Controllers\Panel\EventController::class,'enable'])->name('panel.event.enable');
+        Route::delete('/disable/{event}',[\App\Http\Controllers\Panel\EventController::class,'disable'])->name('panel.event.disable');
+        Route::post('/enable/{event}',[\App\Http\Controllers\Panel\EventController::class,'enable'])->name('panel.event.enable');
     });
 });
