@@ -21,10 +21,8 @@ class User extends Authenticatable
         'username',
         'email',
         'password',
-        'admin_role',
-        'writer_role',
-        'acc_role',
-        'social_role',
+        'is_admin',
+        'is_agent',
         'status'
     ];
 

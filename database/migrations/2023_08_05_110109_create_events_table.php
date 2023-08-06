@@ -21,7 +21,10 @@ class CreateEventsTable extends Migration
             $table->text('description');
             $table->string('start_date');
             $table->string('end_date');
-            $table->integer('status')->default(1);
+            $table->integer('view')->default(0);
+            $table->integer('price');
+            $table->text('message');
+            $table->integer('status')->default(0);
             $table->timestamps();
         });
     }
