@@ -28,7 +28,10 @@ class EventCreateRequest extends FormRequest
             'description' => 'required',
             'start_date' => 'required | date',
             'end_date' => 'required | date',
-            'unit_id' => 'required'
+            'price' => 'required',
+            'message' => 'required',
+            'count' => 'required',
+            'categories' => 'required'
         ];
     }
 }

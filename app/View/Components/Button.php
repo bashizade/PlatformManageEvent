@@ -1,19 +1,22 @@
 <?php
 
-namespace App\View\Components\Table;
+namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class Td extends Component
+class Button extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-
-    public function __construct()
+    public $type;
+    public $color;
+    public function __construct($type = "submit",$color = "blue")
     {
+        $this->type = $type;
+        $this->color = $color;
     }
 
     /**
@@ -23,6 +26,6 @@ class Td extends Component
      */
     public function render()
     {
-        return view('components.table.td');
+        return view('components.button');
     }
 }

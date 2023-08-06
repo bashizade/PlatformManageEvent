@@ -23,7 +23,8 @@ Route::prefix('panel')->group(function (){
     Route::prefix('event')->group(function (){
         Route::get('/',[\App\Http\Controllers\Panel\EventController::class,'index'])->name('panel.event.index');
         Route::post('/create',[\App\Http\Controllers\Panel\EventController::class,'create'])->name('panel.event.create');
-        Route::put('/update',[\App\Http\Controllers\Panel\EventController::class,'update'])->name('panel.event.update');
-        Route::delete('/delete',[\App\Http\Controllers\Panel\EventController::class,'delete'])->name('panel.event.delete');
+        Route::put('/update/{event}',[\App\Http\Controllers\Panel\EventController::class,'update'])->name('panel.event.update');
+        Route::delete('/disable',[\App\Http\Controllers\Panel\EventController::class,'disable'])->name('panel.event.disable');
+        Route::post('/enable',[\App\Http\Controllers\Panel\EventController::class,'enable'])->name('panel.event.enable');
     });
 });

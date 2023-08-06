@@ -1,6 +1,6 @@
 <div
     :class="isOpenMenu ? '' : 'hidden'"
-    class="lg:block fixed top-0 right-0 h-screen w-64 pt-20 px-2 border-l border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 dark:text-gray-100"
+    class="lg:block fixed top-0 right-0 z-10 h-screen w-64 pt-20 px-2 border-l border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 dark:text-gray-100"
 >
     <ul>
         <a href="{{ route('panel.index') }}">

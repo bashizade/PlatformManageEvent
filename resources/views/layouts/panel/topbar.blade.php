@@ -1,5 +1,5 @@
 <div
-    class="fixed top-0 w-screen h-16 z-10 p-2 border-b border-gray-200 dark:border-slate-700 bg-white dark:text-gray-100 dark:bg-slate-800"
+    class="fixed top-0 z-20 w-screen h-16 z-10 p-2 border-b border-gray-200 dark:border-slate-700 bg-white dark:text-gray-100 dark:bg-slate-800"
 >
     <div class="flex items-center justify-between">
         <div class="flex items-center space-x-2">

@@ -9,6 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/select2.css') }}">
 </head>
 
 <body x-data="{isOpenMenu:false}" class="bg-white dark:bg-slate-800">
@@ -50,5 +51,13 @@
 
 <script defer src="{{ asset('js/alpine.js') }}"></script>
 <script src="{{ asset('js/app.js') }}"></script>
+
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/select2.js') }}"></script>
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+</script>
 </body>
 </html>

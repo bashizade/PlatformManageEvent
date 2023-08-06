@@ -1,19 +1,22 @@
 <?php
 
-namespace App\View\Components\Table;
+namespace App\View\Components\Form;
 
 use Illuminate\View\Component;
 
-class Td extends Component
+class Select2 extends Component
 {
     /**
      * Create a new component instance.
      *
      * @return void
      */
-
-    public function __construct()
+    public $label;
+    public $name;
+    public function __construct($label,$name)
     {
+        $this->label = $label;
+        $this->name = $name;
     }
 
     /**
@@ -23,6 +26,6 @@ class Td extends Component
      */
     public function render()
     {
-        return view('components.table.td');
+        return view('components.form.select2');
     }
 }

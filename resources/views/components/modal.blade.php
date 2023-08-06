@@ -1,4 +1,4 @@
-<div class="flex justify-end">
+<div>
     <!-- Modal toggle -->
     <button data-modal-target="{{ $modal_id }}" data-modal-toggle="{{ $modal_id }}"
             class="block text-white bg-{{ $colorbtn }}-700 hover:bg-{{ $colorbtn }}-800 focus:ring-4 focus:outline-none focus:ring-{{ $colorbtn }}-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-{{ $colorbtn }}-600 dark:hover:bg-{{ $colorbtn }}-700 dark:focus:ring-{{ $colorbtn }}-800"

@@ -16,13 +16,13 @@ class CreateEventsTable extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned()->index();
-            $table->bigInteger('unit_id')->unsigned()->index();
             $table->string('title');
             $table->text('description');
             $table->string('start_date');
             $table->string('end_date');
             $table->integer('view')->default(0);
             $table->integer('price');
+            $table->integer('count');
             $table->text('message');
             $table->integer('status')->default(0);
             $table->timestamps();
