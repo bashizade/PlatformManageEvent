@@ -27,4 +27,8 @@ Route::prefix('panel')->group(function (){
         Route::delete('/disable/{event}',[\App\Http\Controllers\Panel\EventController::class,'disable'])->name('panel.event.disable');
         Route::post('/enable/{event}',[\App\Http\Controllers\Panel\EventController::class,'enable'])->name('panel.event.enable');
     });
+
+    Route::prefix('invoice')->group(function (){
+        Route::get('/',[\App\Http\Controllers\Panel\InvoiceController::class,'index'])->name('panel.invoice.index');
+    });
 });
