@@ -13,7 +13,7 @@ class InvoiceCreateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,11 @@ class InvoiceCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'event_id' => 'required',
+            'number' => 'required',
+            'date' => 'required | date',
+            'agent' => 'required',
+            'patch_file' => 'required',
         ];
     }
 }

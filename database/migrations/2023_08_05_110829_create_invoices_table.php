@@ -19,7 +19,7 @@ class CreateInvoicesTable extends Migration
             $table->bigInteger('event_id')->unsigned()->index();
             $table->text('patch_file');
             $table->integer('number');
-            $table->timestamp('date');
+            $table->string('date');
             $table->string('agent');
             $table->integer('status');
             $table->timestamps();

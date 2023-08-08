@@ -17,6 +17,7 @@
             <x-form.input type="text" name="message" placeholder="رویداد در ساعت ..." label="توضیحات ارسالی به کاربر درباره رویداد"/>
             <x-form.select2 name="categories" label="دسته بندی رویداد">
                 <option value="">دسته بندی رویداد را انتخاب کنید</option>
+                <option value="1">11</option>
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->title }}</option>
                 @endforeach
