@@ -24,7 +24,7 @@ class InvoiceController extends Controller
     {
         $validate_data = $request->validated();
 
-        $validate_data['user_id'] = 1;
+        $validate_data['user_id'] = Auth::id();
         $validate_data['patch_file'] = asset('files/'.$request->patch_file->store('invoices'));
         $validate_data['status'] = 1;
 
@@ -35,13 +35,29 @@ class InvoiceController extends Controller
         return redirect(route('panel.invoice.index'));
     }
 
-    public function update(InvoiceUpdateRequest $request)
+    public function update(InvoiceUpdateRequest $request,Invoice $invoice)
     {
+        if ($invoice->user_id != Auth::id())
+            abort(403,'شما اجازه دسترسی به این محتوا را ندارید');
 
+        $validate_data = $request->validated();
+
+        if ($validate_data['patch_file'])
+            $validate_data['patch_file'] = asset('files/'.$request->patch_file->store('invoices'));
+
+        $invoice->update($validate_data);
+
+        $this->show_message('فاکتور با موفقیت ویرایش شد');
+
+        return redirect(route('panel.invoice.index'));
     }
 
-    public function delete(InvoiceDeleteRequest $request)
+    public function delete(InvoiceDeleteRequest $request,Invoice $invoice)
     {
+        $invoice->delete();
 
+        $this->show_message('فاکتور با موفقیت حذفشد');
+
+        return redirect(route('panel.invoice.index'));
     }
 }

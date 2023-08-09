@@ -28,7 +28,7 @@ class InvoiceCreateRequest extends FormRequest
             'number' => 'required',
             'date' => 'required | date',
             'agent' => 'required',
-            'patch_file' => 'required',
+            'patch_file' => 'required | mimes:jpg,png',
         ];
     }
 }
