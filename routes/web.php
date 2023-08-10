@@ -42,4 +42,10 @@ Route::prefix('panel')->group(function (){
         Route::put('/update/{category}',[\App\Http\Controllers\Panel\CategoryController::class,'update'])->name('panel.category.update');
         Route::delete('/delete/{category}',[\App\Http\Controllers\Panel\CategoryController::class,'delete'])->name('panel.category.delete');
     });
+
+    Route::prefix('user')->group(function (){
+        Route::get('/',[\App\Http\Controllers\Panel\UserController::class,'index'])->name('panel.user.index');
+        Route::put('/to-admin/{user}',[\App\Http\Controllers\Panel\UserController::class,'to_admin'])->name('panel.user.to_admin');
+        Route::put('/to-agent/{user}',[\App\Http\Controllers\Panel\UserController::class,'to_agent'])->name('panel.user.to_agent');
+    });
 });
