@@ -26,6 +26,8 @@ class EventController extends Controller
 
         $validate_data['user_id'] = Auth::id();
 
+        $validate_data['file_patch'] = asset('files/'.$request->file_patch->store('events'));
+
         $event = Event::query()->create($validate_data);
 
         foreach ($request->categories as $category){

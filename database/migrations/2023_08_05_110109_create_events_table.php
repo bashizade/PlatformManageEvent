@@ -24,6 +24,7 @@ class CreateEventsTable extends Migration
             $table->integer('price');
             $table->integer('count');
             $table->text('message');
+            $table->text('file_patch');
             $table->integer('status')->default(0);
             $table->timestamps();
         });

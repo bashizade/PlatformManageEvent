@@ -10,6 +10,7 @@
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/select2.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font.css') }}">
 </head>
 
 <body x-data="{isOpenMenu:false}" class="bg-white dark:bg-slate-800">

@@ -5,7 +5,7 @@
 @section('content')
 
     <x-modal modalID="create-event" header="ساخت رویداد جدید" button="افزودن رویداد +">
-        <form action="{{ route('panel.event.create') }}" method="post">
+        <form action="{{ route('panel.event.create') }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('post')
             <x-form.input type="text" name="title" placeholder="رویداد بازی سازی ..." label="عنوان رویداد"/>
@@ -15,6 +15,7 @@
             <x-form.input type="number" name="count" placeholder="100" label="تعداد بلیط ورودی رویداد"/>
             <x-form.input type="number" name="price" placeholder="150000" label="قیمت هر بلیط رویداد"/>
             <x-form.input type="text" name="message" placeholder="رویداد در ساعت ..." label="توضیحات ارسالی به کاربر درباره رویداد"/>
+            <x-form.input type="file" name="file_patch" placeholder="..." label="تصاویر را وارد کنید"/>
             <x-form.select2 name="categories" label="دسته بندی رویداد">
                 <option value="">دسته بندی رویداد را انتخاب کنید</option>
                 <option value="1">11</option>

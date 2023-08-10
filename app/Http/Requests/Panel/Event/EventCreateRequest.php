@@ -31,7 +31,8 @@ class EventCreateRequest extends FormRequest
             'price' => 'required',
             'message' => 'required',
             'count' => 'required',
-            'categories' => 'required'
+            'categories' => 'required',
+            'file_patch' => 'required'
         ];
     }
 }
