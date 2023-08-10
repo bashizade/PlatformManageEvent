@@ -56,7 +56,19 @@ class InvoiceController extends Controller
     {
         $invoice->delete();
 
-        $this->show_message('فاکتور با موفقیت حذفشد');
+        $this->show_message('فاکتور با موفقیت حذف شد');
+
+        return redirect(route('panel.invoice.index'));
+    }
+
+    public function change_status(Request $request, Invoice $invoice)
+    {
+        $validate_data = $request->validate([
+            'status' => 'required'
+        ]);
+        $invoice->update($validate_data);
+
+        $this->show_message('وضعیت فاکتور با موفقیت تغییر کرد');
 
         return redirect(route('panel.invoice.index'));
     }

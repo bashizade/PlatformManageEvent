@@ -31,7 +31,8 @@ Route::prefix('panel')->group(function (){
     Route::prefix('invoice')->group(function (){
         Route::get('/',[\App\Http\Controllers\Panel\InvoiceController::class,'index'])->name('panel.invoice.index');
         Route::post('/create',[\App\Http\Controllers\Panel\InvoiceController::class,'create'])->name('panel.invoice.create');
-        Route::put('/update',[\App\Http\Controllers\Panel\InvoiceController::class,'update'])->name('panel.invoice.update');
-        Route::delete('/delete',[\App\Http\Controllers\Panel\InvoiceController::class,'delete'])->name('panel.invoice.delete');
+        Route::put('/update/{invoice}',[\App\Http\Controllers\Panel\InvoiceController::class,'update'])->name('panel.invoice.update');
+        Route::delete('/delete/{invoice}',[\App\Http\Controllers\Panel\InvoiceController::class,'delete'])->name('panel.invoice.delete');
+        Route::put('/change-status/{invoice}',[\App\Http\Controllers\Panel\InvoiceController::class,'change_status'])->name('panel.invoice.change_status');
     });
 });

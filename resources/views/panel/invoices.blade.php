@@ -54,7 +54,59 @@
                         رد شده
                     @endif
                 </x-table.td>
-                <x-table.td></x-table.td>
+                <x-table.td>
+                    <div class="flex text-right">
+                        <div class="mt-3">
+                            <x-modal modalID="update-invoice-{{ $invoice->id }}" header="ویرایش سند مالی" button="ویرایش">
+                                <form action="{{ route('panel.invoice.update',['invoice' => $invoice]) }}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('put')
+                                    <x-form.select label="رویداد مورد نظر را انتخاب کنید" name="event_id">
+                                        <option value="" dir="rtl">رویداد را انتخاب کنید.....</option>
+                                        @foreach($events as $event)
+                                            <option value="{{ $event->id }}" dir="rtl" {{ $invoice->event_id == $event->id ? "selected" : "" }}>{{ $event->title }}</option>
+                                        @endforeach
+                                    </x-form.select>
+                                    <x-form.input type="number" name="number" label="شماره فاکتور را وارد کنید" placeholder="568...">{{ $invoice->number }}</x-form.input>
+                                    <x-form.input type="text" name="date" label="تاریخ صدور فاکتور را وارد کنید" placeholder="1402/05/02">{{ $invoice->date }}</x-form.input>
+                                    <x-form.input type="text" name="agent" label="نام فرد درخواست کننده" placeholder="امیر..">{{ $invoice->agent }}</x-form.input>
+                                    <x-form.input type="file" name="patch_file" label="فایل تصویر فاکتور را وارد کنید" placeholder="..."></x-form.input>
+                                    <x-button color="green">ویرایش فاکتور</x-button>
+                                </form>
+                            </x-modal>
+                        </div>
+                        <div>
+                            @if($invoice->status == 1)
+                                <form action="{{ route('panel.invoice.change_status',['invoice' => $invoice]) }}" method="post">
+                                    @csrf
+                                    @method('put')
+                                    <input type="hidden" name="status" value="2">
+                                    <x-button color="purple">تغییر وضعیت به تایید شده</x-button>
+                                </form>
+                                <form action="{{ route('panel.invoice.change_status',['invoice' => $invoice]) }}" method="post">
+                                    @csrf
+                                    @method('put')
+                                    <input type="hidden" name="status" value="4">
+                                    <x-button color="purple">تغییر وضعیت به رد شده</x-button>
+                                </form>
+                            @elseif($invoice->status == 2)
+                                <form action="{{ route('panel.invoice.change_status',['invoice' => $invoice]) }}" method="post">
+                                    @csrf
+                                    @method('put')
+                                    <input type="hidden" name="status" value="3">
+                                    <x-button color="purple">تغییر وضعیت به پرداخت شده</x-button>
+                                </form>
+                            @endif
+                        </div>
+                        <div>
+                            <form action="{{ route('panel.invoice.delete',['invoice' => $invoice]) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <x-button color="red">حذف کردن</x-button>
+                            </form>
+                        </div>
+                    </div>
+                </x-table.td>
             </x-table.tr>
         @endforeach
     </x-table.body>
