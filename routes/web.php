@@ -35,4 +35,11 @@ Route::prefix('panel')->group(function (){
         Route::delete('/delete/{invoice}',[\App\Http\Controllers\Panel\InvoiceController::class,'delete'])->name('panel.invoice.delete');
         Route::put('/change-status/{invoice}',[\App\Http\Controllers\Panel\InvoiceController::class,'change_status'])->name('panel.invoice.change_status');
     });
+
+    Route::prefix('category')->group(function (){
+        Route::get('/',[\App\Http\Controllers\Panel\CategoryController::class,'index'])->name('panel.category.index');
+        Route::post('/create',[\App\Http\Controllers\Panel\CategoryController::class,'create'])->name('panel.category.create');
+        Route::put('/update/{category}',[\App\Http\Controllers\Panel\CategoryController::class,'update'])->name('panel.category.update');
+        Route::delete('/delete/{category}',[\App\Http\Controllers\Panel\CategoryController::class,'delete'])->name('panel.category.delete');
+    });
 });
