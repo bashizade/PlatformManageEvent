@@ -15,7 +15,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        $events = Event::all();
+        $events = auth()->user()->is_admin ? Event::all() : Event::query()->where('user_id',auth()->id())->get();
         $categories = Category::query()->where('status',1)->get();
         return view('panel.events',compact('events','categories'));
     }
@@ -70,7 +70,7 @@ class EventController extends Controller
 
         $this->show_message('رویداد با موفقیت غیرفعال شد');
 
-        return redirect(route('panel.event.index'));
+        return redirect(route('panel.event.index.admin'));
     }
 
     public function enable(EventDeleteRequest $request,Event $event)
@@ -80,7 +80,7 @@ class EventController extends Controller
 
         $this->show_message('رویداد با موفقیت فعال شد');
 
-        return redirect(route('panel.event.index'));
+        return redirect(route('panel.event.index.admin'));
     }
 
 }

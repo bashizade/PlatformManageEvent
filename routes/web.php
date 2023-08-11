@@ -31,8 +31,6 @@ Route::prefix('panel')->middleware('auth')->group(function (){
             Route::get('/',[\App\Http\Controllers\Panel\EventController::class,'index'])->name('panel.event.index');
             Route::post('/create',[\App\Http\Controllers\Panel\EventController::class,'create'])->name('panel.event.create');
             Route::put('/update/{event}',[\App\Http\Controllers\Panel\EventController::class,'update'])->name('panel.event.update');
-            Route::delete('/disable/{event}',[\App\Http\Controllers\Panel\EventController::class,'disable'])->name('panel.event.disable');
-            Route::post('/enable/{event}',[\App\Http\Controllers\Panel\EventController::class,'enable'])->name('panel.event.enable');
         });
 
         Route::prefix('invoice')->group(function (){
@@ -57,5 +55,10 @@ Route::prefix('panel')->middleware('auth')->group(function (){
             Route::put('/to-admin/{user}',[\App\Http\Controllers\Panel\UserController::class,'to_admin'])->name('panel.user.to_admin');
             Route::put('/to-agent/{user}',[\App\Http\Controllers\Panel\UserController::class,'to_agent'])->name('panel.user.to_agent');
         });
+
+        Route::delete('/event/disable/{event}',[\App\Http\Controllers\Panel\EventController::class,'disable'])->name('panel.event.disable');
+        Route::post('/event/enable/{event}',[\App\Http\Controllers\Panel\EventController::class,'enable'])->name('panel.event.enable');
+
+        Route::get('/events',[\App\Http\Controllers\Panel\EventController::class,'index'])->name('panel.event.index.admin');
     });
 });
